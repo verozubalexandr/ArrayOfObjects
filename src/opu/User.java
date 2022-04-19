@@ -1,6 +1,8 @@
 package opu;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class User {
    private String login;
@@ -12,7 +14,7 @@ public class User {
       this.setLogin(login);
       this.setPassword(password);
       this.role = role;
-      this.registrationDate = LocalDateTime.now();
+      this.registrationDate = LocalDateTime.now().minusSeconds(((long) (Math.random() * 10000))).minusDays(((long) (Math.random() * 11)));
    }
 
    public String getLogin() {
@@ -24,7 +26,7 @@ public class User {
    }
 
    public String getPassword() {
-      return role == SystemRole.USER || role == SystemRole.GUEST ? password : "********";
+      return password;
    }
 
    public void setPassword(final String password) {

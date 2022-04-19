@@ -13,6 +13,8 @@ public class Main {
 */
       System.out.println();
 
+      //для наглядности я снял маску ввода с пароля (******)
+      //и установил рандомную дату и время
       final Users users = new Users(3);
       users.addUser(user1);
       users.addUser(user2);
@@ -20,11 +22,8 @@ public class Main {
       System.out.println("The oldest user is: " + users.findOldestUser());
       System.out.println();
       System.out.println(users);
-      System.out.println();
-      users.removeUser(1);
-      System.out.println(users);
-      users.removeUser("user1");
-      System.out.println();
+      System.out.println("(After check registration date & ?change password)");
+      users.checkAutoChange();
       System.out.println(users);
 
    }
